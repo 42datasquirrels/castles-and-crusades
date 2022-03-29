@@ -1,0 +1,33 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+    <div class="header-fields">
+      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'TLGCC.Name'}}"/></h1>
+      <div class="grid grid-3col">
+        <div class="resource">
+          <label for="data.price.value" class="resource-label">{{localize data.price.label}}</label>
+          <input type="text" name="data.price.value" value="{{data.price.value}}" data-dtype="String"/>
+        </div>
+        <div class="resource">
+          <label for="data.weight.value" class="resource-label">{{localize data.weight.label}}</label>
+          <input type="text" name="data.weight.value" value="{{data.weight.value}}" data-dtype="Number"/>
+        </div>
+        <div class="resource">
+          <label for="data.armorClass.value" class="resource-label">{{localize data.armorClass.abbr}}</label>
+          <input type="text" name="data.armorClass.value" value="{{data.armorClass.value}}" data-dtype="Number"/>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+
+    {{!-- Description Tab --}}
+    <div class="description">
+      {{editor content=data.description target="data.description" rollData=rollData button=true owner=owner editable=editable}}
+    </div>
+
+  </section>
+
+</form>

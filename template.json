@@ -1,0 +1,277 @@
+{
+  "Actor": {
+    "types": ["character", "monster"],
+    "templates": {
+      "base": {
+        "armorClass": {
+          "value": 11,
+          "label": "TLGCC.ArmorClass",
+          "abbr": "TLGCC.ArmorClassAbbr"
+        },
+        "attackBonus": {
+          "value": 1,
+          "label": "TLGCC.AttackBonus",
+          "abbr": "TLGCC.AttackBonusAbbr"
+        },
+        "biography": "",
+        "hitPoints": {
+          "value": 10,
+          "max": 10,
+          "label": "TLGCC.HitPoints",
+          "abbr": "TLGCC.HitPointsAbbr"
+        },
+        "hdSize": {
+          "value": 0,
+          "label": "TLGCC.hdSize"
+        },
+        "move": {
+          "value": 30,
+          "label": "TLGCC.Movement"
+        },
+        "saves": {
+          "death": {
+            "value": 13
+          },
+          "wands": {
+            "value": 14
+          },
+          "paralysis": {
+            "value": 15
+          },
+          "breath": {
+            "value": 16
+          },
+          "spells": {
+            "value": 18
+          }
+        }
+      }
+    },
+    "character": {
+      "templates": ["base"],
+      "abilities": {
+        "str": {
+          "value": 10
+        },
+        "int": {
+          "value": 10
+        },
+        "wis": {
+          "value": 10
+        },
+        "dex": {
+          "value": 10
+        },
+        "con": {
+          "value": 10
+        },
+        "cha": {
+          "value": 10
+        }
+      },
+      "age": {
+        "value": "",
+        "label": "TLGCC.Age"
+      },
+      "class": {
+        "value": "",
+        "label": "TLGCC.Class"
+      },
+      "race": {
+        "value": "",
+        "label": "TLGCC.Race"
+      },
+      "sex": {
+        "value": "",
+        "label": "TLGCC.Sex"
+      },
+      "level": {
+        "value": 1,
+        "label": "TLGCC.Level"
+      },
+      "money": {
+        "pp": {
+          "value": 0
+        },
+        "gp": {
+          "value": 0
+        },
+        "ep": {
+          "value": 0
+        },
+        "sp": {
+          "value": 0
+        },
+        "cp": {
+          "value": 0
+        }
+      },
+      "spellsPerLevel": {
+        "value": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "6": 0,
+          "7": 0,
+          "8": 0,
+          "9": 0
+        },
+        "label": "TLGCC.SpellsPerLevel"
+      },
+      "xp": {
+        "value": 0,
+        "next": 2000,
+        "label": "TLGCC.ExperiencePoints",
+        "abbr": "TLGCC.ExperiencePointsAbbr"
+      }
+    },
+    "monster": {
+      "templates": ["base"],
+      "hitDice": {
+        "size": "d8",
+        "number": 1,
+        "mod": 0,
+        "label": "TLGCC.HitDice",
+        "abbr": "TLGCC.HitDiceAbbr"
+      },
+      "size": {
+        "value": 0,
+        "label": "TLGCC.monsterSize"
+      },
+      "numberAppearing": {
+        "value": "1d4",
+        "label": "TLGCC.NumberAppearing"
+      },
+      "specialAbility": {
+        "value": 0,
+        "label": "TLGCC.SpecialAbility"
+      },
+      "treasureType": {
+        "value": "None",
+        "label": "TLGCC.TreasureType"
+      },
+      "xp": {
+        "value": 0,
+        "label": "TLGCC.ExperiencePoints",
+        "abbr": "TLGCC.ExperiencePointsAbbr"
+      }
+    },
+    "npc": {
+      "templates": ["base"],
+      "hitDice": {
+        "size": "d8",
+        "number": 1,
+        "mod": 0,
+        "label": "TLGCC.HitDice",
+        "abbr": "TLGCC.HitDiceAbbr"
+      },
+      "size": {
+        "value": 0,
+        "label": "TLGCC.monsterSize"
+      },
+      "numberAppearing": {
+        "value": "1d4",
+        "label": "TLGCC.NumberAppearing"
+      },
+      "specialAbility": {
+        "value": 0,
+        "label": "TLGCC.SpecialAbility"
+      },
+      "treasureType": {
+        "value": "None",
+        "label": "TLGCC.TreasureType"
+      },
+      "xp": {
+        "value": 0,
+        "label": "TLGCC.ExperiencePoints",
+        "abbr": "TLGCC.ExperiencePointsAbbr"
+      }
+    }
+  },
+  "Item": {
+    "types": ["item", "weapon", "armor", "spell", "feature"],
+    "templates": {
+      "base": {
+        "description": ""
+      },
+      "valuable": {
+        "price": {
+          "value": "",
+          "label": "TLGCC.Price"
+        },
+        "weight": {
+          "value": 1,
+          "label": "TLGCC.Weight"
+        }
+      }
+    },
+    "item": {
+      "templates": ["base", "valuable"],
+      "quantity": {
+        "value": 1,
+        "label": "TLGCC.Quantity"
+      }
+    },
+    "weapon": {
+      "templates": ["base", "valuable"],
+      "bonusAb": {
+        "value": 0,
+        "label": "TLGCC.BonusAttackBonus"
+      },
+      "damage": {
+        "value": "1d6",
+        "label": "TLGCC.Damage",
+        "abbr": "TLGCC.DamageAbbr"
+      },
+      "range":{
+        "value": "Melee",
+        "label": "TLGCC.Range"
+      },
+      "size": {
+        "value": "M",
+        "label": "TLGCC.Size"
+      }
+    },
+    "armor": {
+      "templates": ["base", "valuable"],
+      "armorClass": {
+        "value": 11,
+        "label": "TLGCC.ArmorClass",
+        "abbr": "TLGCC.ArmorClassAbbr"
+      }
+    },
+    "spell": {
+      "templates": ["base"],
+      "class": {
+        "value": "",
+        "label": "TLGCC.Class"
+      },
+      "duration": {
+        "value": "",
+        "label": "TLGCC.Duration"
+      },
+      "prepared": {
+        "value": 0,
+        "label": "TLGCC.Prepared"
+      },
+      "range": {
+        "value": "",
+        "label": "TLGCC.Range"
+      },
+      "spellLevel": {
+        "value": 1,
+        "label": "TLGCC.SpellLevel"
+      }
+    },
+    "feature": {
+      "templates": ["base"],
+      "formula": {
+        "value": "d100",
+        "label": "TLGCC.Formula"
+      }
+    }
+  }
+}

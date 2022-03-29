@@ -1,0 +1,110 @@
+<form class="{{cssClass}} {{actor.type}} flexcol" autocomplete="off">
+
+  {{!-- Sheet Header --}}
+  <header class="sheet-header">
+    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+    <div class="header-fields">
+      <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'TLGCC.Name'}}"/></h1>
+      <div class="resources grid grid-2col">
+
+        <div class="resource flex-group-center">
+          <label for="data.hitPoints.value" class="resource-label">{{localize 'TLGCC.HitPoints'}}</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="number" name="data.hitPoints.value" value="{{data.hitPoints.value}}" data-dtype="Number"/>
+            <span class="flexshrink flex-align-center">&nbsp;/&nbsp;</span>
+            <input type="number" name="data.hitPoints.max" value="{{data.hitPoints.max}}" data-dtype="Number"/>
+          </div>
+        </div>
+
+        <div class="resource flex-group-center">
+          <label for="data.hitDice" class="resource-label"><a class="rollable" data-roll="{{data.hitDice.number}}{{data.hitDice.size}}+{{data.hitDice.mod}}" data-label="{{localize data.hitDice.label}}">{{localize data.hitDice.abbr}}&nbsp;/&nbsp;{{localize data.specialAbility.label}}</a></label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="number" name="data.hitDice.number" value="{{data.hitDice.number}}" data-dtype="Number"/>
+            <input type="text" name="data.hitDice.size" value="{{data.hitDice.size}}" data-dtype="String"/>
+            <span class="flexshrink flex-align-center">+</span>
+            <input type="number" name="data.hitDice.mod" value="{{data.hitDice.mod}}" data-dtype="Number" sign="true"/>
+            <span class="flexshrink flex-align-center">&nbsp;/&nbsp;</span>
+            <input type="number" name="data.specialAbility.value" value="{{data.specialAbility.value}}" data-dtype="Number"/>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="resources grid grid-4col">
+
+        <div class="resource flex-group-center">
+          <label for="data.numberAppearing.value" class="resource-label"><a class="rollable" data-roll="{{data.numberAppearing.value}}" data-label="{{localize data.numberAppearing.label}}">{{localize data.numberAppearing.label}}</a></label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="data.numberAppearing.value" value="{{data.numberAppearing.value}}" data-dtype="String"/>
+          </div>
+        </div>
+
+        <div class="resource flex-group-center">
+          <label for="data.morale.value" class="resource-label"><a class="rollable" data-roll="2d6" data-label="{{localize data.morale.label}} ({{data.morale.value}})">{{localize data.morale.label}}</a></label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="number" name="data.morale.value" value="{{data.morale.value}}" data-dtype="Number"/>
+          </div>
+        </div>
+
+        <div class="resource flex-group-center">
+          <label for="data.treasureType.value" class="resource-label">{{localize data.treasureType.label}}</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="data.treasureType.value" value="{{data.treasureType.value}}" data-dtype="String"/>
+          </div>
+        </div>
+
+        <div class="resource flex-group-center">
+          <label for="data.xp.value" class="resource-label">{{localize data.xp.abbr}}</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="number" disabled="true" name="data.xp.value" value="{{data.xp.value}}" data-dtype="Number"/>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    {{!-- Default tab is specified in actor-sheet.mjs --}}
+    <a class="item" data-tab="combat">{{localize 'TLGCC.CombatTab'}}</a>
+    <a class="item" data-tab="description">{{localize 'TLGCC.DescriptionTab'}}</a>
+  </nav>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+
+    {{!-- Combat Tab --}}
+    <div class="tab combat" data-group="primary" data-tab="combat">
+      <section class="grid grid-3col">
+        <aside class="sidebar">
+
+          <div class="abilities flexcol">
+            {{#each data.saves as |save key|}}
+            <div class="ability flexrow flex-group-center">
+              <label for="data.saves.{{key}}.value" class="resource-label rollable flexlarge align-left" data-roll="d20" data-label="Saving Throw - {{save.label}}">{{save.label}}</label>
+              <input type="text" name="data.saves.{{key}}.value" value="{{save.value}}" data-dtype="Number"/>
+            </div>
+            {{/each}}
+          </div>
+        </aside>
+
+        {{!-- For the main combat list, span the right two columns --}}
+        <section class="main grid-span-2">
+          {{> "systems/tlgcc/templates/actor/parts/actor-combat.html"}}
+          {{> "systems/tlgcc/templates/actor/parts/actor-features.html"}}
+        </section>
+
+      </section>
+    </div>
+
+    {{!-- Description Tab --}}
+    <div class="tab description" data-group="primary" data-tab="description">
+      {{!-- If you want TinyMCE editors to output inline rolls when rendered, you need to pass the actor's roll data to the rollData property. --}}
+      {{editor content=data.biography target="data.biography" rollData=rollData button=true owner=owner editable=editable}}
+    </div>
+
+  </section>
+</form>
+
+<!-- <script>document.getElementsByName('data.attackBonus.value')[0].disabled = true;</script> -->
