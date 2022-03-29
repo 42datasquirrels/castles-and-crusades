@@ -10,7 +10,7 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["tlgcc", "sheet", "actor"],
-      template: "systems/tlgcc/templates/actor/actor-sheet.html",
+      template: "systems/castles_crusades/templates/actor/actor-sheet.html",
       width: 600,
       height: 600,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "combat" }]
@@ -19,7 +19,7 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
 
   /** @override */
   get template() {
-    return `systems/tlgcc/templates/actor/actor-${this.actor.data.type}-sheet.html`;
+    return `systems/castles_crusades/templates/actor/actor-${this.actor.data.type}-sheet.html`;
   }
 
   /* -------------------------------------------- */

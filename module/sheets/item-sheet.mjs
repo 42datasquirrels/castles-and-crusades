@@ -15,7 +15,7 @@ export class tlgccItemSheet extends ItemSheet {
 
   /** @override */
   get template() {
-    const path = "systems/tlgcc/templates/item";
+    const path = "systems/castles_crusades/templates/item";
     // Return a single sheet for all item types.
     // return `${path}/item-sheet.html`;
 
