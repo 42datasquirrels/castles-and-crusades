@@ -23,6 +23,6 @@
   "secondaryTokenAttribute": null,
   "url": "https://github.com/42datasquirrels/castles_crusades",
   "manifest": "https://raw.githubusercontent.com/42datasquirrels/castles_crusades/main/system.json",
-  "download": "",
+  "download": "https://github.com/42datasquirrels/castles_crusades/archive/refs/heads/main.zip",
   "license": "LICENSE.txt"
 }
