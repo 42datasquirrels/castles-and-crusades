@@ -21,8 +21,8 @@
   "gridUnits": "ft",
   "primaryTokenAttribute": "hitPoints",
   "secondaryTokenAttribute": null,
-  "url": "https://github.com/42datasquirrels/tlgcc",
-  "manifest": "https://raw.githubusercontent.com/42datasquirrels/tlgcc/main/system.json",
-  "download": "https://github.com/42datasquirrels/tlgcc/archive/refs/tags/r6.zip",
+  "url": "https://github.com/42datasquirrels/castles_crusades",
+  "manifest": "https://raw.githubusercontent.com/42datasquirrels/castles_crusades/main/system.json",
+  "download": "",
   "license": "LICENSE.txt"
 }
