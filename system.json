@@ -2,7 +2,7 @@
   "name": "Castles & Crusades",
   "title": "Castles and Crusades",
   "description": "SIEGE Engine RPG system for FoundryVTT!",
-  "version": "r1",
+  "version": "r1.1",
   "minimumCoreVersion": "0.8.9",
   "compatibleCoreVersion": "9",
   "author": "42datasquirrels",
