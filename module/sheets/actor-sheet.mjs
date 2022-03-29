@@ -4,7 +4,7 @@ import {onManageActiveEffect, prepareActiveEffectCategories} from "../helpers/ef
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
-export class BasicFantasyRPGActorSheet extends ActorSheet {
+export class tlgccActorSheet extends ActorSheet {
 
   /** @override */
   static get defaultOptions() {
