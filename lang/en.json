@@ -1,7 +1,6 @@
 {
   "ACTOR.TypeCharacter": "Character",
   "ACTOR.TypeMonster": "Monster",
-  "ACTOR.Typenpc": "NPC",
 
   "ITEM.TypeItem": "Equipment",
   "ITEM.TypeWeapon": "Weapon",

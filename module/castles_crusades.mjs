@@ -30,7 +30,7 @@ Hooks.once('init', async function() {
    * @type {String}
    */
   CONFIG.Combat.initiative = {
-    formula: "max(1, 1d6 + @abilities.dex.bonus + @initBonus.value)",
+    formula: "max(1, 1d10)",
     decimals: 0
   };
 

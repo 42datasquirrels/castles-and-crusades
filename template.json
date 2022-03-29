@@ -158,38 +158,8 @@
         "label": "TLGCC.ExperiencePoints",
         "abbr": "TLGCC.ExperiencePointsAbbr"
       }
-    },
-    "npc": {
-      "templates": ["base"],
-      "hitDice": {
-        "size": "d8",
-        "number": 1,
-        "mod": 0,
-        "label": "TLGCC.HitDice",
-        "abbr": "TLGCC.HitDiceAbbr"
-      },
-      "size": {
-        "value": 0,
-        "label": "TLGCC.monsterSize"
-      },
-      "numberAppearing": {
-        "value": "1d4",
-        "label": "TLGCC.NumberAppearing"
-      },
-      "specialAbility": {
-        "value": 0,
-        "label": "TLGCC.SpecialAbility"
-      },
-      "treasureType": {
-        "value": "None",
-        "label": "TLGCC.TreasureType"
-      },
-      "xp": {
-        "value": 0,
-        "label": "TLGCC.ExperiencePoints",
-        "abbr": "TLGCC.ExperiencePointsAbbr"
-      }
     }
+
   },
   "Item": {
     "types": ["item", "weapon", "armor", "spell", "feature"],
