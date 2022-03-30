@@ -106,6 +106,7 @@ export class tlgccActorSheet extends ActorSheet {
     const weapons = [];
     const armors = [];
     const spells = {
+      0: [],
       1: [],
       2: [],
       3: [],

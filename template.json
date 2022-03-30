@@ -53,20 +53,21 @@
         "str": {
           "value": 10,
           "ccprimary": false
-        },
-        "int": {
-          "value": 10,
-          "ccprimary": false
-        },
-        "wis": {
-          "value": 10,
-          "ccprimary": false
+          
         },
         "dex": {
           "value": 10,
           "ccprimary": false
         },
         "con": {
+          "value": 10,
+          "ccprimary": false
+        },
+        "int": {
+          "value": 10,
+          "ccprimary": false
+        },
+        "wis": {
           "value": 10,
           "ccprimary": false
         },
@@ -229,6 +230,18 @@
         "value": "",
         "label": "TLGCC.Duration"
       },
+      "savevalue": {
+        "value": "",
+        "label": "TLGCC.savevalue"
+      },
+      "spellresist": {
+        "value": "",
+        "label": "TLGCC.spellresist"
+      },
+      "spellcomp": {
+        "value": "",
+        "label": "TLGCC.Comp"
+      },
       "prepared": {
         "value": 0,
         "label": "TLGCC.Prepared"
@@ -237,9 +250,21 @@
         "value": "",
         "label": "TLGCC.Range"
       },
+      "spelldmg": {
+        "value": "",
+        "label": "TLGCC.spelldmg"
+      },
+      "cast": {
+        "value": "",
+        "label": "TLGCC.Cast"
+      },
+      "component": {
+        "value": "",
+        "label": "TLGCC.Component"
+      },
       "spellLevel": {
         "value": 1,
-        "label": "TLGCC.SpellLevel"
+        "label": "TLGCC.spellLevel"
       }
     },
     "feature": {
