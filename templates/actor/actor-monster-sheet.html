@@ -17,11 +17,11 @@
         </div>
 
         <div class="resource flex-group-center">
-          <label for="data.hitDice" class="resource-label"><a class="rollable" data-roll="{{data.hitDice.number}}{{data.hitDice.size}}+{{data.hitDice.mod}}" data-label="{{localize data.hitDice.label}}">{{localize data.hitDice.abbr}}&nbsp;/&nbsp;{{localize data.specialAbility.label}}</a></label>
+          <label for="data.hitDice" class="resource-label"><a class="rollable" data-roll="{{data.hitDice.number}}{{data.hitDice.size}}+{{data.hitDice.mod}}" data-label="{{localize data.hitDice.label}}">HD Size  &nbsp;</a>{{localize data.specialAbility.label}}</label>
           <div class="resource-content flexrow flex-center flex-between">
             <input type="number" name="data.hitDice.number" value="{{data.hitDice.number}}" data-dtype="Number"/>
             <input type="text" name="data.hitDice.size" value="{{data.hitDice.size}}" data-dtype="String"/>
-            <span class="flexshrink flex-align-center">+</span>
+            <span class="flexshrink flex-align-center"> </span>
             <input type="number" name="data.hitDice.mod" value="{{data.hitDice.mod}}" data-dtype="Number" sign="true"/>
             <span class="flexshrink flex-align-center">&nbsp;/&nbsp;</span>
             <input type="number" name="data.specialAbility.value" value="{{data.specialAbility.value}}" data-dtype="Number"/>
@@ -40,9 +40,9 @@
         </div>
 
         <div class="resource flex-group-center">
-          <label for="data.morale.value" class="resource-label"><a class="rollable" data-roll="2d6" data-label="{{localize data.morale.label}} ({{data.morale.value}})">{{localize data.morale.label}}</a></label>
+          <label for="data.monterINT.value" class="resource-label"><a class="" data-label="{{localize data.monterINT.label}} ({{data.monterINT.value}})">{{localize data.monsterINT.label}}</a></label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="number" name="data.morale.value" value="{{data.morale.value}}" data-dtype="Number"/>
+            <input type="text" name="data.monterINT.value" value="{{data.monterINT.value}}" data-dtype="String"/>
           </div>
         </div>
 
@@ -56,7 +56,7 @@
         <div class="resource flex-group-center">
           <label for="data.xp.value" class="resource-label">{{localize data.xp.abbr}}</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="number" disabled="true" name="data.xp.value" value="{{data.xp.value}}" data-dtype="Number"/>
+            <input type="number" name="data.xp.value" value="{{data.xp.value}}" data-dtype="Number"/>
           </div>
         </div>
 

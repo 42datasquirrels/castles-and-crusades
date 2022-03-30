@@ -21,7 +21,7 @@
           "abbr": "TLGCC.HitPointsAbbr"
         },
         "hdSize": {
-          "value": 0,
+          "value": "1d8",
           "label": "TLGCC.hdSize"
         },
         "move": {
@@ -51,22 +51,28 @@
       "templates": ["base"],
       "abilities": {
         "str": {
-          "value": 10
+          "value": 10,
+          "ccprimary": false
         },
         "int": {
-          "value": 10
+          "value": 10,
+          "ccprimary": false
         },
         "wis": {
-          "value": 10
+          "value": 10,
+          "ccprimary": false
         },
         "dex": {
-          "value": 10
+          "value": 10,
+          "ccprimary": false
         },
         "con": {
-          "value": 10
+          "value": 10,
+          "ccprimary": false
         },
         "cha": {
-          "value": 10
+          "value": 10,
+          "ccprimary": false
         }
       },
       "age": {
@@ -137,9 +143,9 @@
         "label": "TLGCC.HitDice",
         "abbr": "TLGCC.HitDiceAbbr"
       },
-      "size": {
-        "value": 0,
-        "label": "TLGCC.monsterSize"
+      "monsterINT": {
+        "value": "P",
+        "label": "TLGCC.monsterINT"
       },
       "numberAppearing": {
         "value": "1d4",

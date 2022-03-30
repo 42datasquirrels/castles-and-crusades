@@ -111,7 +111,10 @@ export class tlgccActorSheet extends ActorSheet {
       3: [],
       4: [],
       5: [],
-      6: []
+      6: [],
+      7: [],
+      8: [],
+      9: []
     };
     const features = [];
 
@@ -275,7 +278,7 @@ export class tlgccActorSheet extends ActorSheet {
         const itemId = element.closest('.item').dataset.itemId;
         const item = this.actor.items.get(itemId);
         let label = dataset.label ? `Roll: ${dataset.label}` : `Roll: ${dataset.attack.capitalize()} attack with ${item.name}`;
-        let rollFormula = 'd20+@ab';
+        let rollFormula = 'd20+@ab+@level.value';
         if (this.actor.data.type == 'character') {
           if (dataset.attack == 'melee') {
             rollFormula += '+@str.bonus';
