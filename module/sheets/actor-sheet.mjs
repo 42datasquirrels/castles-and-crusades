@@ -11,7 +11,7 @@ export class tlgccActorSheet extends ActorSheet {
     return mergeObject(super.defaultOptions, {
       classes: ["tlgcc", "sheet", "actor"],
       template: "systems/tlgcastles_crusades/templates/actor/actor-sheet.html",
-      width: 600,
+      width: 800,
       height: 600,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "combat" }]
     });
