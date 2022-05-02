@@ -56,13 +56,23 @@
       <section class="grid grid-3col">
         <aside class="sidebar">
 
-          <div class="abilities flexcol">
+          <div class="abilities flexcol stat-grid">
             {{#each data.abilities as |ability key|}}
-            <div class="ability flexrow flex-group-center">
+            <!-- <div class="ability flexrow flex-group-center">
               <input type="checkbox" name="data.abilities.{{key}}.ccprimary" {{checked ability.ccprimary}}/>
               <label for="data.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left" data-roll="d20+@abilities.{{key}}.bonus+@level.value" data-label="{{ability.label}} Ability Check. <b>Prime:</b> {{ability.ccprimary}}">{{ability.label}}</label>
               <input type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>
               <span class="ability-mod rollable" data-roll="d20+@abilities.{{key}}.bonus+@level.value" data-label="{{ability.label}} Ability Check. <b>Prime:</b> {{ability.ccprimary}}">{{numberFormat ability.bonus decimals=0 sign=true}}</span>
+             </div> -->
+             <div class="ability flexrow flex-group-center stat-container">
+               <label for="data.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left attribute-label" data-roll="d20+@abilities.{{key}}.bonus+@level.value" data-label="{{ability.label}} Ability Check. <b>Prime:</b> {{ability.ccprimary}}">{{ability.label}}</label>
+              <div>
+                <span class="ability-mod rollable mod" data-roll="d20+@abilities.{{key}}.bonus+@level.value" data-label="{{ability.label}} Ability Check. <b>Prime:</b> {{ability.ccprimary}}">{{numberFormat ability.bonus decimals=0 sign=true}}</span>
+              </div>
+               <!-- <input type="checkbox" name="data.abilities.{{key}}.ccprimary" class="attribute-label" ability.ccprimary}}/> -->
+              <div class="attribute-stat">
+                <input class="" type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>
+              </div>
              </div>
             {{/each}}
 

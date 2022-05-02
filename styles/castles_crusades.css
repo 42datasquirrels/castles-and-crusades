@@ -594,3 +594,40 @@
 .tlgcc .effects .item .effect-controls {
   border: none;
 }
+
+/* Attributes */
+.flexcol {
+  gap: 10px;
+}
+
+.stat-grid {
+  align-items: center;
+}
+
+.stat-container {
+  border: 1px solid black;
+  height: 100px;
+  width: 100px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.attribute-label {
+  font-weight: bold;
+}
+.mod {
+  flex-grow: 2;
+  font-size: 2em;
+  margin-top: 10px;
+}
+.attribute-stat {
+  width: 100%;
+}
+.attribute-stat input {
+  border-radius: 5px;
+  text-align: center;
+  width:30px;
+}
