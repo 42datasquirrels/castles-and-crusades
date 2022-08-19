@@ -1,5 +1,14 @@
 # Castles & Crusades for FoundryVTT
 
+This effort is now folded into to Troll Lord Games Foundry VTT System!
+
+As such, as of **2022-08-11 this repo is now archived.**
+
+You can find the new repo to download the system and submit PRs [https://gitlab.com/troll-lord/foundry-vtt/ruleset/castles-and-crusades].
+
+The general chat and support channel for the new system can be found [https://discord.com/channels/425649158255411211/992535373253185766] on the Troll Lord Games Discord server.
+
+Thank you for your support and we look forward to all of your input to make the new TLG FoundryVTT game system better!
 
 
 ## License
