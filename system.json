@@ -10,7 +10,7 @@
   },
   "url": "https://trolllord.com/castles-crusades/",
   "manifest": "https://raw.githubusercontent.com/42datasquirrels/castles-and-crusades/main/system.json",
-  "download": "https://github.com/42datasquirrels/castles-and-crusades/archive/refs/tags/0.0.8-emergency.zip",
+  "download": "https://github.com/42datasquirrels/castles-and-crusades/archive/refs/heads/main.zip",
   "license": "LICENSE.txt",
   "authors": [
     { 
