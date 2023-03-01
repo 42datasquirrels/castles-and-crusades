@@ -1,10 +1,5 @@
 # Castles & Crusades: The Role Playing Game
-
-[![Latest Release](https://gitlab.com/troll-lord/foundry-vtt/ruleset/castles-and-crusades/-/badges/release.svg)](https://gitlab.com/troll-lord/foundry-vtt/ruleset/castles-and-crusades/-/releases)
-[![pipeline status](https://gitlab.com/troll-lord/foundry-vtt/ruleset/castles-and-crusades/badges/main/pipeline.svg)](https://gitlab.com/troll-lord/foundry-vtt/ruleset/castles-and-crusades/-/commits/main)  
-The **Official** game system for playing [Castles & Crusades: The Role Playing Game](https://trolllord.com/castles-crusades/) on FoundryVTT.
-
-Castles & Crusades: The Roleplaying Game, is an easy to learn, fast paced fantasy role playing game suitable for novice and veteran gamers of all ages. With Castles & Crusades, these imaginings come to life as you play the role of a hero seeking adventure in a fantastic world populated by mythic creatures and legendary beasts. Or, as the Castle Keeper, you can design the worlds and stories that make up the game, guiding friends and fellow gamers through epic adventures in wondrous settings of your own making. **Join Us at the Table!**
+Emergency backup repo due to broken TLG.
 
 ![Banner](https://raw.githubusercontent.com/42datasquirrels/castles_crusades/main/readme_banner.webp)
 
@@ -12,7 +7,7 @@ Castles & Crusades: The Roleplaying Game, is an easy to learn, fast paced fantas
 
 1. Inside Foundry's Configuration and Setup screen, go to **Game Systems**
 2. Click "Install System"
-3. In the Manifest URL field, found at the bottowm, paste: `https://gitlab.com/troll-lord/foundry-vtt/ruleset/castles-and-crusades/-/raw/main/system.json`
+3. In the Manifest URL field, found at the bottowm, paste: `[https://gitlab.com/troll-lord/foundry-vtt/ruleset/castles-and-crusades/-/raw/main/system.json](https://github.com/42datasquirrels/castles-and-crusades/blob/main/system.json)`
 
 ## Official Modules
 
