@@ -1,27 +1,53 @@
-<section class="resources grid grid-3col">
-
+<section class="resources grid grid-5col">
   <div class="resource flex-group-center">
-    <label for="data.race.value" class="resource-label">{{localize data.race.label}}</label>
+    <label for="data.size.value" class="resource-label">{{localize 'TLGCC.Size'}}</label>
     <div class="resource-content flexrow flex-center flex-between">
-      <input type="text" name="data.race.value" value="{{data.race.value}}" data-dtype="String"/>
+      <input type="text" name="data.size.value" value="{{data.size.value}}" data-dtype="String"/>
     </div>
   </div>
-
+  <div class="resource flex-group-center">
+    <label for="data.height.value" class="resource-label">{{localize 'TLGCC.Height'}}</label>
+    <div class="resource-content flexrow flex-center flex-between">
+      <input type="text" name="data.height.value" value="{{data.height.value}}" data-dtype="String"/>
+    </div>
+  </div>
   <div class="resource flex-group-center">
     <label for="data.sex.value" class="resource-label">{{localize data.sex.label}}</label>
     <div class="resource-content flexrow flex-center flex-between">
       <input type="text" name="data.sex.value" value="{{data.sex.value}}" data-dtype="String"/>
     </div>
   </div>
-
+  <div class="resource flex-group-center">
+    <label for="data.religion.value" class="resource-label">{{localize data.religion.label}}</label>
+    <div class="resource-content flexrow flex-center flex-between">
+      <input type="text" name="data.religion.value" value="{{data.religion.value}}" data-dtype="String"/>
+    </div>
+  </div>
   <div class="resource flex-group-center">
     <label for="data.age.value" class="resource-label">{{localize data.age.label}}</label>
     <div class="resource-content flexrow flex-center flex-between">
       <input type="text" name="data.age.value" value="{{data.age.value}}" data-dtype="String"/>
     </div>
   </div>
-
-</section>
-
-{{!-- If you want TinyMCE editors to output inline rolls when rendered, you need to pass the actor's roll data to the rollData property. --}}
+  <div class="resource flex-group-center grid-span-3">
+    <label for="data.language.value" class="resource-label">{{localize 'TLGCC.language'}}</label>
+    <div class="resource-content flexrow flex-center flex-between">
+      <input type="text" name="data.language.value" value="{{data.language.value}}" data-dtype="String"/>
+    </div></div>
+    <div class="resource flex-group-center grid-span-2">
+      <label for="data.origin.value" class="resource-label">{{localize data.origin.label}}</label>
+      <div class="resource-content flexrow flex-center flex-between">
+        <input type="text" name="data.origin.value" value="{{data.origin.value}}" data-dtype="String"/>
+      </div>
+    </div>
+  </section>
+<div class="grid grid-2col">
+<div class="flex-group-left" style="border: 1px black;">
+  <h2>{{localize 'TLGCC.Appearance'}}</h2>
+  {{editor content=data.appearance target="data.appearance" rollData=rollData button=true owner=owner editable=editable}}
+  
+  </div>
+  <div class="flex-group-left">
+    <h2 title="Click the pencil icon at far right to edit.">{{localize 'TLGCC.Notes'}}</h2>
 {{editor content=data.biography target="data.biography" rollData=rollData button=true owner=owner editable=editable}}
+</div></div>

@@ -12,7 +12,8 @@ import { TLGCC } from "./helpers/config.mjs";
 /*  Init Hook                                   */
 /* -------------------------------------------- */
 
-Hooks.once('init', async function() {
+Hooks.once("init", async function() {
+  console.log(`TLGCC | Initializing the Castles & Crusades Game System\n${TLGCC.ASCII}`);
 
   // Add utility classes to the global game object so that they're more easily
   // accessible in global contexts.
@@ -27,7 +28,7 @@ Hooks.once('init', async function() {
 
   /**
    * Set an initiative formula for the system
-   * @type {String}
+   * @type {string}
    */
   CONFIG.Combat.initiative = {
     formula: "max(1, 1d10)",
@@ -53,22 +54,35 @@ Hooks.once('init', async function() {
 /* -------------------------------------------- */
 
 // If you need to add Handlebars helpers, here are a few useful examples:
-Handlebars.registerHelper('concat', function() {
-  var outStr = '';
-  for (var arg in arguments) {
-    if (typeof arguments[arg] != 'object') {
+Handlebars.registerHelper("concat", function() {
+  let outStr = "";
+  for (let arg in arguments) {
+    if (typeof arguments[arg] != "object") {
       outStr += arguments[arg];
     }
   }
-  return outStr;
+  return outStr.trim();
 });
 
-Handlebars.registerHelper('toLowerCase', function(str) {
+
+Handlebars.registerHelper("toLowerCase", function(str) {
   return str.toLowerCase();
 });
 
-Handlebars.registerHelper('localizeLowerCase', function(str) {
+Handlebars.registerHelper("localizeLowerCase", function(str) {
   return game.i18n.localize(str).toLowerCase();
+});
+
+Handlebars.registerHelper("toUpperCase", function(str) {
+  return str.toUpperCase();
+});
+
+Handlebars.registerHelper("localizeUpperCase", function(str) {
+  return game.i18n.localize(str).toUpperCase();
+});
+
+Handlebars.registerHelper("toCapitalCase", function(str) {
+  return str.replace(/\w\S*/g, w => (w.replace(/^\w/, c => c.toUpperCase())));
 });
 
 /* -------------------------------------------- */
@@ -110,7 +124,7 @@ Hooks.on("createToken", async function(token, options, id) {
 /**
  * Create a Macro from an Item drop.
  * Get an existing item macro if one exists, otherwise create a new one.
- * @param {Object} data     The dropped data
+ * @param {object} data     The dropped data
  * @param {number} slot     The hotbar slot to use
  * @returns {Promise}
  */
@@ -139,7 +153,7 @@ async function createItemMacro(data, slot) {
  * Create a Macro from an Item drop.
  * Get an existing item macro if one exists, otherwise create a new one.
  * @param {string} itemName
- * @return {Promise}
+ * @returns {Promise}
  */
 function rollItemMacro(itemName) {
   const speaker = ChatMessage.getSpeaker();

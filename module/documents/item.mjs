@@ -15,10 +15,11 @@ export class tlgccItem extends Item {
   /**
    * Prepare a data object which is passed to any Roll formulas which are created related to this Item
    * @private
+   * @returns {object}  RollData object
    */
-   getRollData() {
+  getRollData() {
     // If present, return the actor's roll data.
-    if ( !this.actor ) return null;
+    if (!this.actor) return null;
     const rollData = this.actor.getRollData();
     rollData.item = foundry.utils.deepClone(this.data.data);
 
@@ -35,8 +36,8 @@ export class tlgccItem extends Item {
 
     // Initialize chat data.
     const speaker = ChatMessage.getSpeaker({ actor: this.actor });
-    const rollMode = game.settings.get('core', 'rollMode');
-    const label = `Roll: ${game.i18n.localize('ITEM.Type' + item.type.capitalize())} - ${item.name}`;
+    const rollMode = game.settings.get("core", "rollMode");
+    const label = `Roll: ${game.i18n.localize(`ITEM.Type${item.type.capitalize()}`)} - ${item.name}`;
 
     // If there's no roll data, or the formula is empty, send a chat message.
     if (!this.data.data.formula || !this.data.data.formula.value) {
@@ -44,7 +45,7 @@ export class tlgccItem extends Item {
         speaker: speaker,
         rollMode: rollMode,
         flavor: label,
-        content: item.data.description ?? ''
+        content: item.data.description ?? ""
       });
     } else { // Otherwise, create a roll and send a chat message from it.
       // Retrieve roll data.

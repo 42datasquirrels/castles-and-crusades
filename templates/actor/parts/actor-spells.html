@@ -1,4 +1,6 @@
-<section class="resources grid grid-5col">
+<div class="resource flex-group-center" ><h3 title="{{localize 'TLGCC.spellsKnownhover'}}">Spells Known</h3></div>
+<section class="resources grid grid-10col">
+ 
   {{#each data.spellsPerLevel.value as |spellsPerLevel level|}}
   <div class="resource flex-group-center">
     <label for="data.spellsPerLevel.{{level}}" class="resource-label">{{level}}</label>
@@ -13,7 +15,7 @@
 <ol class="items-list">
   {{#each spells as |spells spellLevel|}}
     <li class="item flexrow items-header">
-      <div class="item-name">{{localize 'TLGCC.SpellLevel'}} {{spellLevel}} {{localize 'TLGCC.Spells'}}</div>
+      <div class="item-name">{{localize 'TLGCC.spellLevel'}} {{spellLevel}} {{localize 'TLGCC.Spells'}}</div>
       <div class="item-detail">{{localize 'TLGCC.Prepared'}}</div>
       <div class="item-controls">
         <a class="item-control item-create" title="Create item" data-type="spell" data-spell-level-value="{{spellLevel}}"><i class="fas fa-plus"></i> {{localize 'TLGCC.Add'}}</a>
@@ -23,10 +25,10 @@
       <li class="item flexrow" data-item-id="{{item._id}}">
         <div class="item-name flexrow">
           <div class="item-image">
-            <a class="rollable" data-roll-type="item"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></a>
+            <a class="rollable" data-roll-type="item" data-label="@actor.name casts @item.name with a Save of @spell.savevalue and duration @spell.duration"><img src="{{item.img}}" title="Cast Spell: {{item.name}}" width="24" height="24"/></a>
             
           </div>
-          <h4>{{item.name}}</h4> <a class="rollable" data-roll-type="damage" data-roll="{{data.spelldmg.value}}"><img src="systems/tlgcastles_crusades/styles/damage.svg" title="{{item.name}}" width="24" height="24"/></a>
+          <h4 title="{{data.spell.summary}}">{{item.name}}</h4> <a class="rollable" data-roll-type="damage" data-roll="{{data.spelldmg.value}}"><img src="systems/castles-and-crusades/styles/damage.svg" title="Roll damage for {{item.name}}" width="24" height="24"/></a>
         </div>
         <div class="item-prop grid grid-3col">
           <div class="flex-group-right"><a class="item-control spell-prepare" data-change="-1"><i class="fas fa-minus"></i></a></div>

@@ -3,7 +3,7 @@
     <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
     <div class="header-fields">
       <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'TLGCC.Name'}}"/></h1>
-      <div class="grid grid-3col">
+      <div class="grid grid-4col">
         <div class="resource">
           <label for="data.quantity.value" class="resource-label">{{localize data.quantity.label}}</label>
           <input type="text" name="data.quantity.value" value="{{data.quantity.value}}" data-dtype="Number"/>
@@ -15,6 +15,10 @@
         <div class="resource">
           <label for="data.weight.value" class="resource-label">{{localize data.weight.label}}</label>
           <input type="text" name="data.weight.value" value="{{data.weight.value}}" data-dtype="String"/>
+        </div>
+        <div class="resource">
+          <label for="data.itemev.value" class="resource-label">{{localize 'TLGCC.ItemEV'}}</label>
+          <input type="text" name="data.itemev.value" value="{{data.itemev.value}}" data-dtype="String"/>
         </div>
       </div>
     </div>

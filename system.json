@@ -1,14 +1,26 @@
 {
-  "name": "tlgcastles_crusades",
-  "title": "Castles and Crusades",
-  "description": "SIEGE Engine RPG system for FoundryVTT!",
-  "version": "r1.2.3",
-  "minimumCoreVersion": "0.8.9",
-  "compatibleCoreVersion": "9",
-  "author": "42datasquirrels",
+  "id": "castles-and-crusades",
+  "title": "Castles & Crusades: The Role Playing Game",
+  "description": "Troll Lord Games presents Castles & Crusades: The Role Playing Game for FoundryVTT! To learn about additional adventures please visit https://www.trolllord.com/",
+  "version": "0.0.8-beta",
+  "compatibility": {
+    "minimum": "10",
+    "verified": "10",
+    "maximum": "10"
+  },
+  "url": "https://trolllord.com/castles-crusades/",
+  "manifest": "https://gitlab.com/troll-lord/foundry-vtt/ruleset/castles-and-crusades/-/raw/main/system.json",
+  "download": "https://gitlab.com/troll-lord/foundry-vtt/ruleset/castles-and-crusades/-/archive/0.0.8-beta/castles-and-crusades-0.0.8-beta.zip",
+  "license": "LICENSE.txt",
+  "authors": [
+    { 
+      "name": "Troll Lord Games",
+      "url": "https://trolllord.com/castles-crusades/"
+    }
+  ],
+  "scripts": [],
   "esmodules": ["module/castles_crusades.mjs"],
   "styles": ["styles/castles_crusades.css"],
-  "scripts": [],
   "packs": [],
   "languages": [
     {
@@ -17,12 +29,10 @@
       "path": "lang/en.json"
     }
   ],
+  "socket": false,
+  "initiative": "1d10",
   "gridDistance": 5,
   "gridUnits": "ft",
   "primaryTokenAttribute": "hitPoints",
-  "secondaryTokenAttribute": null,
-  "url": "https://github.com/42datasquirrels/castles_crusades",
-  "manifest": "https://raw.githubusercontent.com/42datasquirrels/castles_crusades/main/system.json",
-  "download": "https://github.com/42datasquirrels/castles_crusades/archive/refs/heads/main.zip",
-  "license": "LICENSE.txt"
+  "secondaryTokenAttribute": null
 }

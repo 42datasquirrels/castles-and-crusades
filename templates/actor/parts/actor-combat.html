@@ -1,20 +1,20 @@
-<section class="resources grid grid-4col">
+<section class="resources grid grid-5col">
 
   <div class="resource flex-group-center">
     <label for="data.armorClass.value" class="resource-label">{{localize data.armorClass.abbr}}</label>
     <div class="resource-content flexrow flex-center flex-between">
-      <input type="number" name="data.armorClass.value" value="{{data.armorClass.value}}" data-dtype="Number"/>
+      <input type="number" title="{{localize 'TLGCC.ACtitle'}}" name="data.armorClass.value" value="{{data.armorClass.value}}" data-dtype="Number"/>
     </div>
   </div>
 
   <div class="resource flex-group-center">
     <label for="data.attackBonus.value" class="resource-label">{{localize data.attackBonus.abbr}}</label>
     <div class="resource-content flexrow flex-center flex-between">
-      <input type="number" name="data.attackBonus.value" value="{{data.attackBonus.value}}" data-dtype="Number" {{#if (eq actor.type "monster")}}disabled{{/if}}/>
+      <input type="number" title="Formula is d20+BtH+Attribute Mod+Misc" name="data.attackBonus.value" value="{{data.attackBonus.value}}" data-dtype="Number" {{#if (eq actor.type "monster")}}disabled{{/if}}/>
     </div>
   </div>
 
-  <div class="resource flex-group-center">
+  <div class="resource flex-group-center grid-span-2">
     <label for="data.move.value" class="resource-label">{{localize data.move.label}}</label>
     <div class="resource-content flexrow flex-center flex-between">
       <input type="text" name="data.move.value" value="{{data.move.value}}" data-dtype="String"/>
@@ -47,10 +47,10 @@
         <h4>{{weapon.name}}</h4>
       </div>
       <div class="item-prop item-image">
-        <a class="rollable" data-roll-type="weapon" data-attack="melee"><img src="systems/tlgcastles_crusades/styles/melee.svg" title="{{localize 'TLGCC.Melee'}} {{localize 'TLGCC.Attack'}}" width="24" height="24"/></a>
-        <a class="rollable" data-roll-type="weapon" data-attack="ranged"><img src="systems/tlgcastles_crusades/styles/ranged.svg" title="{{localize 'TLGCC.Ranged'}} {{localize 'TLGCC.Attack'}}" width="24" height="24"/></a>
+        <a class="rollable" data-roll-type="weapon" data-attack="melee"><img src="systems/castles-and-crusades/styles/melee.svg" title="{{localize 'TLGCC.Melee'}} {{localize 'TLGCC.Attack'}}" width="24" height="24"/></a>
+        <a class="rollable" data-roll-type="weapon" data-attack="ranged"><img src="systems/castles-and-crusades/styles/ranged.svg" title="{{localize 'TLGCC.Ranged'}} {{localize 'TLGCC.Attack'}}" width="24" height="24"/></a>
         <span class="flexshrink">/</span>
-        <a class="rollable" data-roll-type="damage" data-roll="{{weapon.data.damage.value}}" data-label="{{weapon.name}} {{localizeLowerCase weapon.data.damage.label}}"><img src="systems/tlgcastles_crusades/styles/damage.svg" title="{{weapon.data.damage.value}}" width="24" height="24"/></a>
+        <a class="rollable" data-roll-type="damage" data-roll="{{weapon.data.damage.value}}" data-label="{{weapon.name}} {{localizeLowerCase weapon.data.damage.label}}"><img src="systems/castles-and-crusades/styles/damage.svg" title="Roll Damage: {{weapon.data.damage.value}}" width="24" height="24"/></a>
       </div>
       <div class="item-controls">
         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
@@ -63,7 +63,7 @@
 <ol class="items-list">
   <li class="item flexrow items-header">
     <div class="item-name">{{localize 'ITEM.TypeArmor'}}</div>
-    <div class="item-detail">{{localize 'TLGCC.ArmorClass'}}</div>
+    <div class="item-detail" title="{{localize 'TLGCC.AChovertext'}}">{{localize 'TLGCC.ArmorClass'}}</div>
     <div class="item-controls">
       <a class="item-control item-create" title="Create item" data-type="armor"><i class="fas fa-plus"></i> {{localize 'TLGCC.Add'}}</a>
     </div>
@@ -76,7 +76,7 @@
         </div>
         <h4>{{armor.name}}</h4>
       </div>
-      <div class="item-prop">{{localize armor.data.armorClass.abbr}} {{armor.data.armorClass.value}}</div>
+      <div class="item-prop">{{localize armor.data.armorClass.abbr}} +{{armor.data.armorClass.value}}</div>
       <div class="item-controls">
         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>

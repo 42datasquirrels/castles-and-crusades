@@ -41,9 +41,10 @@ export class tlgccActor extends Actor {
 
   /**
    * Prepare Character type specific data
+   * @param actorData
    */
   _prepareCharacterData(actorData) {
-    if (actorData.type !== 'character') return;
+    if (actorData.type !== "character") return;
 
     // Make modifications to data here. For example:
     const data = actorData.data;
@@ -57,9 +58,12 @@ export class tlgccActor extends Actor {
 
   /**
    * Determine ability score modifiers
+   * @param abilityScore
    */
   _calculateAbilityBonus(abilityScore) {
     switch (abilityScore) {
+      case 1: return -4;
+      case 2:
       case 3: return -3;
       case 4:
       case 5: return -2;
@@ -75,21 +79,27 @@ export class tlgccActor extends Actor {
       case 15: return 1;
       case 16:
       case 17: return 2;
-      case 18: 
+      case 18:
       case 19: return 3;
-      case 20: return 4;
+      case 20:
+      case 21: return 4;
+      case 22:
+      case 23: return 5;
+      case 24:
+      case 25: return 6;
       default: return 0;
-    };
+    }
   }
 
   /**
    * Prepare Monster type specific data.
+   * @param actorData
    */
   _prepareMonsterData(actorData) {
-    if (actorData.type !== 'monster') return;
+    if (actorData.type !== "monster") return;
 
     const data = actorData.data;
-    data.xp.value = function () {
+/*     data.xp.value = function() {
       let xpLookup = [10, 25, 75, 145, 240, 360, 500, 670, 875, 1075, 1300, 1575, 1875, 2175, 2500, 2850, 3250, 3600, 4000, 4500, 5250, 6000, 6750, 7500, 8250, 9000];
       let specialAbilityLookup = [3, 12, 25, 30, 40, 45, 55, 65, 70, 75, 90, 95, 100, 110, 115, 125, 135, 145, 160, 175, 200, 225, 250, 275, 300, 325];
       let xpValue = 0;
@@ -102,10 +112,10 @@ export class tlgccActor extends Actor {
         xpSpecialAbilityBonus = specialAbilityLookup[0] * data.specialAbility.value;
       }
       return xpValue + xpSpecialAbilityBonus;
-    };
+    }; */
 
     data.attackBonus.value = this._calculateMonsterAttackBonus();
- 
+
   }
 
   /**
@@ -114,11 +124,11 @@ export class tlgccActor extends Actor {
   _calculateMonsterAttackBonus() {
     if (this.data.data.hitDice.number < 1) {
       return 0;
-    } 
+    }
     switch (this.data.data.hitDice.number) {
       case 9: return 8;
       case 10:
-      case 11: return 9
+      case 11: return 9;
       case 12:
       case 13: return 10;
       case 14:
@@ -159,9 +169,10 @@ export class tlgccActor extends Actor {
 
   /**
    * Prepare character roll data.
+   * @param data
    */
   _getCharacterRollData(data) {
-    if (this.data.type !== 'character') return;
+    if (this.data.type !== "character") return;
 
     // Copy the ability scores to the top level, so that rolls can use
     // formulas like `@str.bonus + 4`.
@@ -179,9 +190,10 @@ export class tlgccActor extends Actor {
 
   /**
    * Prepare NPC roll data.
+   * @param data
    */
   _getMonsterRollData(data) {
-    if (this.data.type !== 'monster') return;
+    if (this.data.type !== "monster") return;
 
     // Process additional NPC data here.
 
@@ -189,6 +201,7 @@ export class tlgccActor extends Actor {
 
   /**
    * Prepare shared Actor roll data.
+   * @param data
    */
   _getActorRollData(data) {
     // Add attack bonus for easier access, or fall back to 0.

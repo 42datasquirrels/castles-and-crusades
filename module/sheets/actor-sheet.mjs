@@ -1,4 +1,4 @@
-import {onManageActiveEffect, prepareActiveEffectCategories} from "../helpers/effects.mjs";
+import { onManageActiveEffect, prepareActiveEffectCategories } from "../helpers/effects.mjs";
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -10,8 +10,8 @@ export class tlgccActorSheet extends ActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["tlgcc", "sheet", "actor"],
-      template: "systems/tlgcastles_crusades/templates/actor/actor-sheet.html",
-      width: 800,
+      template: "systems/castles-and-crusades/templates/actor/actor-sheet.html",
+      width: 780,
       height: 600,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "combat" }]
     });
@@ -19,7 +19,7 @@ export class tlgccActorSheet extends ActorSheet {
 
   /** @override */
   get template() {
-    return `systems/tlgcastles_crusades/templates/actor/actor-${this.actor.data.type}-sheet.html`;
+    return `systems/castles-and-crusades/templates/actor/actor-${this.actor.data.type}-sheet.html`;
   }
 
   /* -------------------------------------------- */
@@ -40,14 +40,14 @@ export class tlgccActorSheet extends ActorSheet {
     context.flags = actorData.flags;
 
     // Prepare character data and items.
-    if (actorData.type == 'character') {
+    if (actorData.type == "character") {
       this._prepareItems(context);
       this._prepareCharacterData(context);
       this._prepareActorData(context);
     }
 
     // Prepare NPC data and items.
-    if (actorData.type == 'monster') {
+    if (actorData.type == "monster") {
       this._prepareItems(context);
       this._prepareActorData(context);
     }
@@ -64,9 +64,10 @@ export class tlgccActorSheet extends ActorSheet {
   /**
    * Organize and classify Items for Actor sheets.
    *
-   * @param {Object} actorData The actor to prepare.
+   * @param {object} actorData The actor to prepare.
    *
-   * @return {undefined}
+   * @param context
+   * @returns {undefined}
    */
   _prepareActorData(context) {
     // Handle saves.
@@ -78,9 +79,10 @@ export class tlgccActorSheet extends ActorSheet {
   /**
    * Organize and classify Items for Character sheets.
    *
-   * @param {Object} actorData The actor to prepare.
+   * @param {object} actorData The actor to prepare.
    *
-   * @return {undefined}
+   * @param context
+   * @returns {undefined}
    */
   _prepareCharacterData(context) {
     // Handle ability scores.
@@ -96,9 +98,10 @@ export class tlgccActorSheet extends ActorSheet {
   /**
    * Organize and classify Items for Character sheets.
    *
-   * @param {Object} actorData The actor to prepare.
+   * @param {object} actorData The actor to prepare.
    *
-   * @return {undefined}
+   * @param context
+   * @returns {undefined}
    */
   _prepareItems(context) {
     // Initialize containers.
@@ -121,15 +124,15 @@ export class tlgccActorSheet extends ActorSheet {
 
     // Define an object to store carried weight.
     let carriedWeight = {
-      "value": 0,
-      _addWeight (moreWeight, quantity) {
-        if (!quantity || quantity == '' || Number.isNaN(quantity) || quantity < 0) {
-          return; // check we have a valid quantity, and do nothing if we do not
+      value: 0,
+      _addWeight(moreWeight, quantity) {
+        if (!quantity || quantity == "" || Number.isNaN(quantity) || quantity < 0) {
+          return; // Check we have a valid quantity, and do nothing if we do not
         }
         let q = Math.floor(quantity / 10);
         if (!Number.isNaN(parseFloat(moreWeight))) {
           this.value += parseFloat(moreWeight) * quantity;
-        } else if (moreWeight === '*' && q > 0) {
+        } else if (moreWeight === "*" && q > 0) {
           this.value += q;
         }
       }
@@ -139,20 +142,20 @@ export class tlgccActorSheet extends ActorSheet {
     for (let i of context.items) {
       i.img = i.img || DEFAULT_TOKEN;
       // Append to gear.
-      if (i.type === 'item') {
+      if (i.type === "item") {
         gear.push(i);
         carriedWeight._addWeight(i.data.weight.value, i.data.quantity.value);
-      } else if (i.type === 'weapon') { // Append to weapons.
+      } else if (i.type === "weapon") { // Append to weapons.
         weapons.push(i);
         carriedWeight._addWeight(i.data.weight.value, 1); // Weapons are always quantity 1
-      } else if (i.type === 'armor') { // Append to armors.
+      } else if (i.type === "armor") { // Append to armors.
         armors.push(i);
         carriedWeight._addWeight(i.data.weight.value, 1); // Armor is always quantity 1
-      } else if (i.type === 'spell') { // Append to spells.
+      } else if (i.type === "spell") { // Append to spells.
         if (i.data.spellLevel.value != undefined) {
           spells[i.data.spellLevel.value].push(i);
         }
-      } else if (i.type === 'feature') { // Append to features.
+      } else if (i.type === "feature") { // Append to features.
         features.push(i);
       }
     }
@@ -160,7 +163,7 @@ export class tlgccActorSheet extends ActorSheet {
     // Iterate through money, add to carried weight
     if (context.data.money) {
       for (let [k, v] of Object.entries(context.data.money)) {
-        carriedWeight._addWeight('*', v.value);
+        carriedWeight._addWeight("*", v.value);
       }
     }
 
@@ -170,7 +173,7 @@ export class tlgccActorSheet extends ActorSheet {
     context.armors = armors;
     context.spells = spells;
     context.features = features;
-    context.carriedWeight = Math.floor(carriedWeight.value); // we discard fractions of weight when we update the sheet
+    context.carriedWeight = Math.floor(carriedWeight.value); // We discard fractions of weight when we update the sheet
   }
 
   /* -------------------------------------------- */
@@ -180,7 +183,7 @@ export class tlgccActorSheet extends ActorSheet {
     super.activateListeners(html);
 
     // Render the item sheet for viewing/editing prior to the editable check.
-    html.find('.item-edit').click(ev => {
+    html.find(".item-edit").click(ev => {
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.items.get(li.data("itemId"));
       item.sheet.render(true);
@@ -191,10 +194,10 @@ export class tlgccActorSheet extends ActorSheet {
     if (!this.isEditable) return;
 
     // Add Inventory Item
-    html.find('.item-create').click(this._onItemCreate.bind(this));
+    html.find(".item-create").click(this._onItemCreate.bind(this));
 
     // Delete Inventory Item
-    html.find('.item-delete').click(ev => {
+    html.find(".item-delete").click(ev => {
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.items.get(li.data("itemId"));
       item.delete();
@@ -202,13 +205,13 @@ export class tlgccActorSheet extends ActorSheet {
     });
 
     // Prepare Spells
-    html.find('.spell-prepare').click(ev => {
+    html.find(".spell-prepare").click(ev => {
       const change = event.currentTarget.dataset.change;
       if (parseInt(change)) {
         const li = $(ev.currentTarget).parents(".item");
         const item = this.actor.items.get(li.data("itemId"));
         let newValue = item.data.data.prepared.value + parseInt(change);
-        item.update({"data.prepared.value": newValue});
+        item.update({ "data.prepared.value": newValue });
       }
     });
 
@@ -216,12 +219,12 @@ export class tlgccActorSheet extends ActorSheet {
     html.find(".effect-control").click(ev => onManageActiveEffect(ev, this.actor));
 
     // Rollable abilities.
-    html.find('.rollable').click(this._onRoll.bind(this));
+    html.find(".rollable").click(this._onRoll.bind(this));
 
     // Drag events for macros.
     if (this.actor.isOwner) {
       let handler = ev => this._onDragStart(ev);
-      html.find('li.item').each((i, li) => {
+      html.find("li.item").each((i, li) => {
         if (li.classList.contains("inventory-header")) return;
         li.setAttribute("draggable", true);
         li.addEventListener("dragstart", handler, false);
@@ -241,10 +244,10 @@ export class tlgccActorSheet extends ActorSheet {
     const type = header.dataset.type;
     // Grab any data associated with this control.
     const data = duplicate(header.dataset);
-    if (type === 'spell') {
+    if (type === "spell") {
       // Move dataset spellLevelValue into spellLevel.value
       data.spellLevel = {
-        "value": data.spellLevelValue
+        value: data.spellLevelValue
       };
       delete data.spellLevelValue;
     }
@@ -257,10 +260,10 @@ export class tlgccActorSheet extends ActorSheet {
       data: data
     };
     // Remove the type from the dataset since it's in the itemData.type prop.
-    delete itemData.data["type"];
+    delete itemData.data.type;
 
     // Finally, create the item!
-    return await Item.create(itemData, {parent: this.actor});
+    return await Item.create(itemData, { parent: this.actor });
   }
 
   /**
@@ -275,31 +278,31 @@ export class tlgccActorSheet extends ActorSheet {
 
     if (dataset.rollType) {
       // Handle weapon rolls. TODO: this could be moved into the item.roll() function instead
-      if (dataset.rollType == 'weapon') {
-        const itemId = element.closest('.item').dataset.itemId;
+      if (dataset.rollType == "weapon") {
+        const itemId = element.closest(".item").dataset.itemId;
         const item = this.actor.items.get(itemId);
         let label = dataset.label ? `Roll: ${dataset.label}` : `Roll: ${dataset.attack.capitalize()} attack with ${item.name}`;
-        let rollFormula = 'd20+@ab';
-        if (this.actor.data.type == 'character') {
-          if (dataset.attack == 'melee') {
-            rollFormula += '+@str.bonus';
-          } else if (dataset.attack == 'ranged') {
-            rollFormula += '+@dex.bonus';
+        let rollFormula = "d20+@ab";
+        if (this.actor.data.type == "character") {
+          if (dataset.attack == "melee") {
+            rollFormula += "+@str.bonus";
+          } else if (dataset.attack == "ranged") {
+            rollFormula += "+@dex.bonus";
           }
         }
-        rollFormula += '+' + item.data.data.bonusAb.value;
+        rollFormula += `+${item.data.data.bonusAb.value}`;
         let roll = new Roll(rollFormula, this.actor.getRollData());
         roll.toMessage({
           speaker: ChatMessage.getSpeaker({ actor: this.actor }),
           flavor: label,
-          rollMode: game.settings.get('core', 'rollMode'),
+          rollMode: game.settings.get("core", "rollMode")
         });
         return roll;
       }
 
       // Handle item rolls.
-      if (dataset.rollType == 'item') {
-        const itemId = element.closest('.item').dataset.itemId;
+      if (dataset.rollType == "item") {
+        const itemId = element.closest(".item").dataset.itemId;
         const item = this.actor.items.get(itemId);
         if (item) return item.roll();
       }
@@ -307,12 +310,12 @@ export class tlgccActorSheet extends ActorSheet {
 
     // Handle rolls that supply the formula directly.
     if (dataset.roll) {
-      let label = dataset.label ? `Roll: ${dataset.label}` : '';
+      let label = dataset.label ? `Roll: ${dataset.label}` : "";
       let roll = new Roll(dataset.roll, this.actor.getRollData());
       roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: label,
-        rollMode: game.settings.get('core', 'rollMode'),
+        rollMode: game.settings.get("core", "rollMode")
       });
       return roll;
     }

@@ -1,51 +1,80 @@
-<form class="{{cssClass}} {{actor.type}} flexcol" autocomplete="off">
+<form class="{{cssClass}} {{actor.type}} tlgbackground flexcol" autocomplete="off">
 
   {{!-- Sheet Header --}}
   <header class="sheet-header">
     <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
     <div class="header-fields">
       <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'TLGCC.Name'}}"/></h1>
-      <div class="resources grid grid-3col">
-
+      <div class="resources grid grid-5col">
         <div class="resource flex-group-center">
-          <label for="data.hitPoints.value" class="resource-label">{{localize 'TLGCC.HitPoints'}}</label>
+          <label for="data.hitPoints.value" class="resource-label">{{localize 'TLGCC.HitPoints'}} </label>
           <div class="resource-content flexrow flex-center flex-between">
             <input type="text" name="data.hitPoints.value" value="{{data.hitPoints.value}}" data-dtype="Number" width="50px"/>
             <span class="flexshrink flex-align-center">&nbsp;/&nbsp;</span>
             <input type="text" name="data.hitPoints.max" value="{{data.hitPoints.max}}" data-dtype="Number"/>
           </div>
         </div>
-
         <div class="resource flex-group-center">
-          <label for="data.level.value" class="resource-label">{{localize data.class.label}}&nbsp; &nbsp;{{localize data.level.label}}</label>
+          <label for="data.level.value" class="resource-label"> {{localize data.level.label}}</label>
+          <input type="text" name="data.level.value" value="{{data.level.value}}" data-dtype="Number"/>
+        </div>
+        <div class="resource flex-group-center grid-span-2">
+          <label for="data.level.value" class="resource-label">{{localize data.class.label}}  </label>
           <div class="resource-content flexrow flex-center flex-between">
             <input type="text" name="data.class.value" value="{{data.class.value}}" data-dtype="String"/>
-            <span class="flexshrink flex-align-center">&nbsp;</span>
-            <input type="text" name="data.level.value" value="{{data.level.value}}" data-dtype="Number"/>
+            <!-- -->
           </div>
         </div>
-
         <div class="resource flex-group-center">
-          <label for="data.xp.value" class="resource-label">{{localize data.xp.abbr}}&nbsp;/&nbsp;{{localize 'TLGCC.NextLevel'}}</label>
+          <label for="data.race.value" class="resource-label">{{localize data.race.label}}</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="data.xp.value" value="{{data.xp.value}}" data-dtype="Number"/>
-            <span class="flexshrink flex-align-center">&nbsp;/&nbsp;</span>
-            <input type="text" name="data.xp.next" value="{{data.xp.next}}" data-dtype="Number"/>
+            <input type="text" name="data.race.value" value="{{data.race.value}}" data-dtype="String"/>
           </div>
         </div>
 
       </div>
-    </div>
+</div>
+
   </header>
 
   {{!-- Sheet Tab Navigation --}}
-  <nav class="sheet-tabs tabs" data-group="primary">
+  <div class="sheet-header">
+    <div class="header-fields">
+    <div class="resources grid grid-6col">
+      <div class="resource flex-group-center grid-span-2">
+        <label for="data.background.value" class="resource-label">{{localize data.background.label}}  </label>
+        <div class="resource-content flexrow flex-center flex-between">
+          <input type="text" name="data.background.value" value="{{data.background.value}}" data-dtype="String"/>
+        </div>
+    </div>
+    <div class="resource flex-group-center grid-span-2">
+      <label for="data.title.value" class="resource-label">{{localize data.title.label}}  </label>
+      <div class="resource-content flexrow flex-center flex-between">
+        <input type="text" name="data.title.value" value="{{data.title.value}}" data-dtype="String"/>
+      </div>
+    </div>
+    <div class="resource flex-group-center">
+    <label for="data.alignment.value" class="resource-label">{{localize 'TLGCC.Alignment'}}  </label>
+    <div class="resource-content flexrow flex-center flex-between">
+      <input type="text" name="data.alignment.value" value="{{data.alignment.value}}" data-dtype="String"/>
+    </div>
+    </div>
+    <div class="resource flex-group-center">
+      <label for="data.xp.value" class="resource-label">{{localize data.xp.abbr}}&nbsp;/&nbsp;{{localize 'TLGCC.NextLevel'}}</label>
+      <div class="resource-content flexrow flex-center flex-between">
+        <input type="text" name="data.xp.value" value="{{data.xp.value}}" data-dtype="Number"/>
+        <span class="flexshrink flex-align-center">&nbsp;/&nbsp;</span>
+        <input type="text" name="data.xp.next" value="{{data.xp.next}}" data-dtype="Number"/>
+      </div>
+    </div>
+    </div></div></div>
+    <nav class="sheet-tabs tabs" data-group="primary">
     {{!-- Default tab is specified in actor-sheet.mjs --}}
     <a class="item" data-tab="combat">{{localize 'TLGCC.CombatTab'}}</a>
-    <a class="item" data-tab="description">{{localize 'TLGCC.DescriptionTab'}}</a>
+    <a class="item" data-tab="features">{{localize 'TLGCC.FeaturesTab'}}</a>
     <a class="item" data-tab="items">{{localize 'TLGCC.ItemsTab'}}</a>
     <a class="item" data-tab="spells">{{localize 'TLGCC.SpellsTab'}}</a>
-    <a class="item" data-tab="features">{{localize 'TLGCC.FeaturesTab'}}</a>
+    <a class="item" data-tab="description">{{localize 'TLGCC.DescriptionTab'}}</a>
   </nav>
 
   {{!-- Sheet Body --}}
@@ -53,33 +82,32 @@
 
     {{!-- Combat Tab --}}
     <div class="tab combat" data-group="primary" data-tab="combat">
+      <div class="grid grid-6col flexrow">
+        {{#each data.abilities as |ability key|}}
+        <div class="ability abilitybox flex-group-center" style="max-width:135px;">
+          <label for="data.abilities.{{key}}.value" class="ability-label rollable flexlarge align-center" title="{{localize 'TLGCC.AbilityCheck' }}" data-roll="d20+@abilities.{{key}}.bonus+@level.value" data-label="<b>{{ability.label}}</b> Ability CHECK. <br><b>Prime: <em>{{ability.ccprimary}}</em></b>">{{ability.label}}</label><div class="break"></div>
+          <span class="abilityscore"><input style="width: 30px;" type="text" name="data.abilities.{{key}}.value" title="{{localize (concat 'TLGCC.Ability' (toCapitalCase key) 'Save') }}" value="{{ability.value}}" data-dtype="Number"/><span style="margin-left: 8px;" title="{{localize (concat 'TLGCC.Ability' (toCapitalCase key) 'Save') }}" class="ability-mod ability-button rollable" data-roll="d20+@abilities.{{key}}.bonus+@level.value" data-label="<b>{{ability.label}}</b> Ability SAVE. <br><b>Prime: <em>{{ability.ccprimary}}</em></b>">{{numberFormat ability.bonus decimals=0 sign=true}} </span></span>
+          <span>{{{localize 'TLGCC.primeCheck'}}}<input style="margin: 5px 8px 3px; height: 13px;" type="checkbox" title="{{localize 'TLGCC.primeCheckhover'}}" name="data.abilities.{{key}}.ccprimary" {{checked ability.ccprimary}}/></span>
+         </div>
+        {{/each}}
+      </div>
       <section class="grid grid-3col">
         <aside class="sidebar">
-
-          <div class="abilities flexcol">
-            {{#each data.abilities as |ability key|}}
-            <div class="ability flexrow flex-group-center">
-              <input type="checkbox" name="data.abilities.{{key}}.ccprimary" {{checked ability.ccprimary}}/>
-              <label for="data.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left" data-roll="d20+@abilities.{{key}}.bonus+@level.value" data-label="{{ability.label}} Ability Check. <b>Prime:</b> {{ability.ccprimary}}">{{ability.label}}</label>
-              <input type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>
-              <span class="ability-mod rollable" data-roll="d20+@abilities.{{key}}.bonus+@level.value" data-label="{{ability.label}} Ability Check. <b>Prime:</b> {{ability.ccprimary}}">{{numberFormat ability.bonus decimals=0 sign=true}}</span>
-             </div>
-            {{/each}}
-
+            <div class="resource-pool flexrow flex-group-center" style="margin-bottom:-12px;"><h4>{{localize 'TLGCC.resourceTracker'}}</h4></div>
             <hr>
-
-            {{#each data.saves as |save key|}}
+            {{#each data.resources as |resource key|}}
             <div class="ability flexrow flex-group-center">
-              <label for="data.saves.{{key}}.value" class="resource-label rollable flexlarge align-left" data-roll="d20" data-label="Saving Throw - {{save.label}}">{{save.label}}</label>
-              <input type="text" name="data.saves.{{key}}.value" value="{{save.value}}" data-dtype="Number"/>
+              <input class="flex-center" type="text" name="data.resources.{{key}}.name" value="{{resource.name}}" data-dtype="String" />
+              <input style="width: 30px;" class="flex-right" type="text" name="data.resources.{{key}}.value" value="{{resource.value}}"
+                  data-dtype="Number" />
             </div>
-            {{/each}}
-          </div>
+            {{/each}} 
+          
         </aside>
 
         {{!-- For the main combat list, span the right two columns --}}
         <section class="main grid-span-2">
-          {{> "systems/tlgcastles_crusades/templates/actor/parts/actor-combat.html"}}
+          {{> "systems/castles-and-crusades/templates/actor/parts/actor-combat.html"}}
         </section>
 
       </section>
@@ -87,22 +115,22 @@
 
     {{!-- Description Tab --}}
     <div class="tab biography" data-group="primary" data-tab="description">
-      {{> "systems/tlgcastles_crusades/templates/actor/parts/actor-description.html"}}
+      {{> "systems/castles-and-crusades/templates/actor/parts/actor-description.html"}}
     </div>
 
     {{!-- Owned Items Tab --}}
     <div class="tab items" data-group="primary" data-tab="items">
-      {{> "systems/tlgcastles_crusades/templates/actor/parts/actor-items.html"}}
+      {{> "systems/castles-and-crusades/templates/actor/parts/actor-items.html"}}
     </div>
 
     {{!-- Owned Spells Tab --}}
     <div class="tab spells" data-group="primary" data-tab="spells">
-      {{> "systems/tlgcastles_crusades/templates/actor/parts/actor-spells.html"}}
+      {{> "systems/castles-and-crusades/templates/actor/parts/actor-spells.html"}}
     </div>
 
     {{!-- Features Tab --}}
     <div class="tab features flexcol" data-group="primary" data-tab="features">
-      {{> "systems/tlgcastles_crusades/templates/actor/parts/actor-features.html"}}
+      {{> "systems/castles-and-crusades/templates/actor/parts/actor-features.html"}}
     </div>
 
   </section>

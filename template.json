@@ -1,6 +1,9 @@
 {
   "Actor": {
-    "types": ["character", "monster"],
+    "types": [
+      "character",
+      "monster"
+    ],
     "templates": {
       "base": {
         "armorClass": {
@@ -14,6 +17,7 @@
           "abbr": "TLGCC.AttackBonusAbbr"
         },
         "biography": "",
+        "appearance": "",
         "hitPoints": {
           "value": 10,
           "max": 10,
@@ -24,9 +28,17 @@
           "value": "1d8",
           "label": "TLGCC.hdSize"
         },
+        "alignment": {
+          "value": "",
+          "label": "TLGCC.Alignment"
+        },
         "move": {
           "value": 30,
           "label": "TLGCC.Movement"
+        },
+        "languages": {
+          "value": "",
+          "label": "TLGCC.languages"
         },
         "saves": {
           "death": {
@@ -44,16 +56,39 @@
           "spells": {
             "value": 18
           }
+        },
+        "resources": {
+          "first": {
+            "name": "Resource 1",
+            "value": 0
+          },
+          "second": {
+            "name": "Resource 2",
+            "value": 0
+          },
+          "third": {
+            "name": "Resource 3",
+            "value": 0
+          },
+          "fourth": {
+            "name": "Resource 4",
+            "value": 0
+          },
+          "fifth": {
+            "name": "Resource 5",
+            "value": 0
+          }
         }
       }
     },
     "character": {
-      "templates": ["base"],
+      "templates": [
+        "base"
+      ],
       "abilities": {
         "str": {
           "value": 10,
           "ccprimary": false
-          
         },
         "dex": {
           "value": 10,
@@ -80,17 +115,37 @@
         "value": "",
         "label": "TLGCC.Age"
       },
+      "background": {
+        "value": "",
+        "label": "TLGCC.Background"
+      },
       "class": {
         "value": "",
         "label": "TLGCC.Class"
+      },
+      "title": {
+        "value": "",
+        "label": "TLGCC.Title"
       },
       "race": {
         "value": "",
         "label": "TLGCC.Race"
       },
+      "religion": {
+        "value": "",
+        "label": "TLGCC.Religion"
+      },
       "sex": {
         "value": "",
         "label": "TLGCC.Sex"
+      },
+      "origin": {
+        "value": "",
+        "label": "TLGCC.Origin"
+      },
+      "height": {
+        "value": "",
+        "label": "TLGCC.Height"
       },
       "level": {
         "value": 1,
@@ -101,9 +156,6 @@
           "value": 0
         },
         "gp": {
-          "value": 0
-        },
-        "ep": {
           "value": 0
         },
         "sp": {
@@ -136,7 +188,9 @@
       }
     },
     "monster": {
-      "templates": ["base"],
+      "templates": [
+        "base"
+      ],
       "hitDice": {
         "size": "d8",
         "number": 1,
@@ -160,16 +214,29 @@
         "value": "None",
         "label": "TLGCC.TreasureType"
       },
+      "type": {
+        "value": "",
+        "label": "TLGCC.monsterType"
+      },
+      "msaves": {
+        "value": "",
+        "label": "TLGCC.monsterSaves"
+      },
       "xp": {
         "value": 0,
         "label": "TLGCC.ExperiencePoints",
         "abbr": "TLGCC.ExperiencePointsAbbr"
       }
     }
-
   },
   "Item": {
-    "types": ["item", "weapon", "armor", "spell", "feature"],
+    "types": [
+      "item",
+      "weapon",
+      "armor",
+      "spell",
+      "feature"
+    ],
     "templates": {
       "base": {
         "description": ""
@@ -182,18 +249,28 @@
         "weight": {
           "value": 1,
           "label": "TLGCC.Weight"
+        },
+        "itemev": {
+          "value": 1,
+          "label": "TLGCC.ItemEV"
         }
       }
     },
     "item": {
-      "templates": ["base", "valuable"],
+      "templates": [
+        "base",
+        "valuable"
+      ],
       "quantity": {
         "value": 1,
         "label": "TLGCC.Quantity"
       }
     },
     "weapon": {
-      "templates": ["base", "valuable"],
+      "templates": [
+        "base",
+        "valuable"
+      ],
       "bonusAb": {
         "value": 0,
         "label": "TLGCC.BonusAttackBonus"
@@ -203,7 +280,7 @@
         "label": "TLGCC.Damage",
         "abbr": "TLGCC.DamageAbbr"
       },
-      "range":{
+      "range": {
         "value": "Melee",
         "label": "TLGCC.Range"
       },
@@ -213,7 +290,10 @@
       }
     },
     "armor": {
-      "templates": ["base", "valuable"],
+      "templates": [
+        "base",
+        "valuable"
+      ],
       "armorClass": {
         "value": 11,
         "label": "TLGCC.ArmorClass",
@@ -221,7 +301,9 @@
       }
     },
     "spell": {
-      "templates": ["base"],
+      "templates": [
+        "base"
+      ],
       "class": {
         "value": "",
         "label": "TLGCC.Class"
@@ -262,17 +344,24 @@
         "value": "",
         "label": "TLGCC.Component"
       },
+      "summary": {
+        "value": "",
+        "label": "TLGCC.spellSummary"
+      },
       "spellLevel": {
-        "value": 1,
+        "value": "",
         "label": "TLGCC.spellLevel"
       }
     },
     "feature": {
-      "templates": ["base"],
+      "templates": [
+        "base"
+      ],
       "formula": {
         "value": "d100",
         "label": "TLGCC.Formula"
-      }
+      },
+      "value": ""
     }
   }
 }

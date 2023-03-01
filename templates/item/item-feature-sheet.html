@@ -9,7 +9,9 @@
           <input type="text" name="data.formula.value" value="{{data.formula.value}}" data-dtype="String"/>
         </div>
       </div>
-    </div>
+
+    </div>      
+    
   </header>
 
   {{!-- Sheet Body --}}
@@ -17,6 +19,12 @@
 
     {{!-- Description Tab --}}
     <div class="description">
+      <div class="grid grid-2col">
+        <div class="resource grid-span-2">
+          <label for="data.feature.value" class="resource-label">{{localize 'TLGCC.FeatureTitle'}}</label>
+          <input type="text" name="data.feature.value" value="{{data.feature.value}}" data-dtype="String"/>
+        </div>
+      </div>
       {{editor content=data.description target="data.description" rollData=rollData button=true owner=owner editable=editable}}
     </div>
 

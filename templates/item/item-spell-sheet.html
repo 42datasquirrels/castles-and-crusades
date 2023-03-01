@@ -19,8 +19,8 @@
           <input type="text" name="data.duration.value" value="{{data.duration.value}}" data-dtype="String"/>
         </div>
         <div class="resource">
-          <label for="data.spellLevel.value" class="resource-label">{{localize data.spellLevel.label}}</label>
-          <input type="text" name="data.spellLevel.value" value="{{data.spellLevel.value}}" data-dtype="Number"/>
+          <label for="data.spell.spelllevel" class="resource-label">Level</label>
+          <input type="text" name="data.spell.spelllevel" value="{{data.spell.spelllevel}}" data-dtype="Number"/>
         </div>
         <div class="resource">
           <label for="data.savevalue.value" class="resource-label">SV</label>
@@ -34,11 +34,11 @@
           <label for="data.spellcomp.value" class="resource-label">Comp.</label>
           <input type="text" name="data.spellcomp.value" value="{{data.spellcomp.value}}" data-dtype="String"/>
         </div>
-
         <div class="resource">
-          <label for="data.class.value" class="resource-label">{{localize data.class.label}}</label>
-          <input type="text" name="data.class.value" value="{{data.class.value}}" data-dtype="String"/>
+          <label for="data.spelldmg.value" class="resource-label">Damage</label>
+          <input type="text" name="data.spelldmg.value" value="{{data.spelldmg.value}}" data-dtype="String"/>
         </div>
+        
         <div class="resource">
           <label for="data.prepared.value" class="resource-label">{{localize data.prepared.label}}</label>
           <input type="number" name="data.prepared.value" value="{{data.prepared.value}}" data-dtype="Number"/>
@@ -47,20 +47,25 @@
           <label for="data.component.value" class="resource-label">Components</label>
           <input type="text" name="data.component.value" value="{{data.component.value}}" data-dtype="String"/>
         </div>
-        <div class="resource">
-          <label for="data.spelldmg.value" class="resource-label">Damage</label>
-          <input type="text" name="data.spelldmg.value" value="{{data.spelldmg.value}}" data-dtype="String"/>
+        <div class="resource grid-span-2">
+          <label for="data.class.value" class="resource-label">{{localize data.class.label}}</label>
+          <input type="text" name="data.class.value" value="{{data.class.value}}" data-dtype="String"/>
         </div>
 
       </div>
     </div>
+    
   </header>
 
   {{!-- Sheet Body --}}
   <section class="sheet-body">
-
+    <div class="grid grid-2col">
+      <div class="resource grid-span-2">      
+    <label for="data.spell.summary" class="resource-label">{{localize 'TLGCC.spellSummary'}}</label>
+          <input type="text" name="data.spell.summary" value="{{data.spell.summary}}" data-dtype="String"/></div></div>
     {{!-- Description Tab --}}
     <div class="description">
+      <h2 title="Click the pencil icon at far right to edit. !!Note Please place full spell data below until we get roll data working">Spell Description - Hover for important alert</h2>
       {{editor content=data.description target="data.description" rollData=rollData button=true owner=owner editable=editable}}
     </div>
 
